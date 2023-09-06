@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import "./index.css";
+import "./index.scss";
 // Material UI's default typography configuration relies only on the 300, 400, 500, and 700 font weights.
 //   ref: https://mui.com/material-ui/getting-started/installation/
 import "@fontsource/roboto/300.css";
