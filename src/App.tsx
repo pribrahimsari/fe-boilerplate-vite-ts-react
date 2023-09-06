@@ -1,11 +1,13 @@
-import AppHeader from "src/pages/layout/AppHeader.tsx";
 import { Box } from "@mui/material";
-import AppFooter from "src/pages/layout/AppFooter.tsx";
 import { makeStyles } from "tss-react/mui";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { SnackbarProvider } from "notistack";
+import AppHeader from "src/pages/layout/AppHeader.tsx";
+import AppFooter from "src/pages/layout/AppFooter.tsx";
 import ErrorPage from "src/pages/ErrorPage.tsx";
 import HomePage from "src/pages/HomePage.tsx";
-import { QueryClient, QueryClientProvider } from "react-query";
+import SnackbarCloseButton from "src/components/SnackbarCloseButton.tsx";
 
 // import from ENV if needed
 // const ANY_API_URL = import.meta.env.VITE_ANY_API_URL;
@@ -44,7 +46,13 @@ function App() {
       <AppHeader />
       <Box className={classes.routesContainer}>
         <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
+          <SnackbarProvider
+            autoHideDuration={3000}
+            preventDuplicate
+            action={(snackbarKey) => <SnackbarCloseButton snackbarKey={snackbarKey} />}
+          >
+            <RouterProvider router={router} />
+          </SnackbarProvider>
         </QueryClientProvider>
       </Box>
       <AppFooter />
