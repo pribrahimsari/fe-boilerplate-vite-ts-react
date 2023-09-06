@@ -1,4 +1,4 @@
-import isLogo from "/logo_is.svg";
+import AppHeader from "src/components/AppHeader.tsx";
 
 // import from ENV if needed
 // const ANY_API_URL = import.meta.env.VITE_ANY_API_URL;
@@ -7,10 +7,7 @@ import isLogo from "/logo_is.svg";
 function App() {
   return (
     <>
-      <a href="https://isari.me" target="_blank">
-        <img src={isLogo} className="logo" alt="İbrahim SARI logo" />
-      </a>
-      <h1>Vite + React + TS Boilerplate</h1>
+      <AppHeader />
     </>
   );
 }
