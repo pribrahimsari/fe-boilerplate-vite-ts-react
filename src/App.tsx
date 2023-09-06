@@ -5,6 +5,7 @@ import { makeStyles } from "tss-react/mui";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "src/pages/ErrorPage.tsx";
 import HomePage from "src/pages/HomePage.tsx";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 // import from ENV if needed
 // const ANY_API_URL = import.meta.env.VITE_ANY_API_URL;
@@ -33,6 +34,8 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 function App() {
   const { classes } = useStyles();
 
@@ -40,7 +43,9 @@ function App() {
     <Box className={classes.appContainer}>
       <AppHeader />
       <Box className={classes.routesContainer}>
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
       </Box>
       <AppFooter />
     </Box>
