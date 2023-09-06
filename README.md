@@ -8,7 +8,7 @@ Visit the link: [FE Boilerplate - https://fe-boilerplate.isari.me/](https://fe-b
 - Frontend Bundler: [Vite](https://vitejs.dev/)
 - Frontend Framework: [React 18](https://react.dev/)
 - UI: [MaterialUI v5](https://mui.com/)
-- Data Fetching Lib: [TanStack Query v3 (formerly React Query)](https://tanstack.com/query/v3/)
+- Data Fetching Lib: [TanStack Query v4 (formerly React Query)](https://tanstack.com/query/v4/)
 - Routing Lib: [React Router v6](https://reactrouter.com/en/main)
 - Form Lib: [Formik](https://formik.org/)
 - Custom Styling: [SASS](https://sass-lang.com/) & [TSS](https://www.tss-react.dev/)
