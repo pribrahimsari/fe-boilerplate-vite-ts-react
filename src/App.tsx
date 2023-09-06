@@ -2,6 +2,9 @@ import AppHeader from "src/pages/layout/AppHeader.tsx";
 import { Box } from "@mui/material";
 import AppFooter from "src/pages/layout/AppFooter.tsx";
 import { makeStyles } from "tss-react/mui";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "src/pages/ErrorPage.tsx";
+import HomePage from "src/pages/HomePage.tsx";
 
 // import from ENV if needed
 // const ANY_API_URL = import.meta.env.VITE_ANY_API_URL;
@@ -22,13 +25,23 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
+  },
+]);
+
 function App() {
   const { classes } = useStyles();
 
   return (
     <Box className={classes.appContainer}>
       <AppHeader />
-      <Box className={classes.routesContainer}>TODO: Routing</Box>
+      <Box className={classes.routesContainer}>
+        <RouterProvider router={router} />
+      </Box>
       <AppFooter />
     </Box>
   );
