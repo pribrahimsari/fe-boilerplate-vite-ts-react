@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SnackbarProvider } from "notistack";
 import AppHeader from "src/pages/layout/AppHeader.tsx";
 import AppFooter from "src/pages/layout/AppFooter.tsx";
@@ -53,6 +54,7 @@ function App() {
           >
             <RouterProvider router={router} />
           </SnackbarProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </Box>
       <AppFooter />
