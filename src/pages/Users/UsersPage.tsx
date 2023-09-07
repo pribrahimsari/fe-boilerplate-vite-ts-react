@@ -6,7 +6,7 @@ const UsersPage = () => {
   const { enqueueSnackbar } = useSnackbar();
   const queryClient = useQueryClient();
 
-  const { refetch, isLoading, isFetching, data } = useQuery(["users"], getUsers, {
+  const { refetch, isLoading, isFetching, data } = useQuery(["users"], () => getUsers({}), {
     refetchOnWindowFocus: false,
     onError: (err) => {
       enqueueSnackbar(JSON.stringify(err), { variant: "error" });
@@ -29,7 +29,11 @@ const UsersPage = () => {
     <div>
       <button
         onClick={() => {
-          addUserM.mutate();
+          addUserM.mutate({
+            firstName: "fake name",
+            lastName: "fake lastname",
+            age: 22,
+          });
         }}
       >
         Add User trigger

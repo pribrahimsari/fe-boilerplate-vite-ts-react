@@ -11,6 +11,7 @@ import HomePage from "src/pages/HomePage.tsx";
 import SnackbarCloseButton from "src/components/SnackbarCloseButton.tsx";
 import UsersPage from "src/pages/Users/UsersPage.tsx";
 import AddUserPage from "src/pages/Users/AddUserPage.tsx";
+import UsersWithContextPage from "src/pages/UsersWithContext/UsersWithContextPage.tsx";
 
 // import from ENV if needed
 // const ANY_API_URL = import.meta.env.VITE_ANY_API_URL;
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
   {
     path: "/users/add",
     element: <AddUserPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/users-context",
+    element: <UsersWithContextPage />,
     errorElement: <ErrorPage />,
   },
 ]);

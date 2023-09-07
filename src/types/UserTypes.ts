@@ -1,4 +1,9 @@
-export type GetUserQueryResult = {
+export type GetUsersQueryVariables = {
+  limit?: number;
+  skip?: number;
+};
+
+export type GetUsersQueryResult = {
   users: User[];
   total: number;
   skip: number;
