@@ -10,8 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
-import ProductTableRow from "src/types/ProductTableRow.tsx";
-import AddProducTableRow from "src/types/AddProducTableRow.tsx";
+import ProductTableRow from "src/pages/Products/ProductTableRow.tsx";
+import AddProducTableRow from "src/pages/Products/AddProducTableRow.tsx";
 
 const useStyles = makeStyles()(() => ({
   headCell: {

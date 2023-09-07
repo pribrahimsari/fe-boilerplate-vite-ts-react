@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "src/api/apiService.ts";
 import { Box, CircularProgress } from "@mui/material";
-import ProductsTable from "src/types/ProductsTable.tsx";
+import ProductsTable from "src/pages/Products/ProductsTable.tsx";
 
 const ProductsPage = () => {
   const { data, isLoading, isFetching } = useQuery(["getProducts"], getProducts, {
