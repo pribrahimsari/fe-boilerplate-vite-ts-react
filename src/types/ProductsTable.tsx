@@ -24,11 +24,13 @@ const HeadCells = () => {
   const { classes } = useStyles();
   return (
     <TableHead>
-      {headCells.map((headCell) => (
-        <TableCell key={headCell} className={classes.headCell}>
-          {headCell}
-        </TableCell>
-      ))}
+      <TableRow>
+        {headCells.map((headCell) => (
+          <TableCell key={headCell} className={classes.headCell}>
+            {headCell}
+          </TableCell>
+        ))}
+      </TableRow>
     </TableHead>
   );
 };
