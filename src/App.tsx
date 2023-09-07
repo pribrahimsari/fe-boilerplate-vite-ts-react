@@ -9,6 +9,7 @@ import AppFooter from "src/pages/layout/AppFooter.tsx";
 import ErrorPage from "src/pages/ErrorPage.tsx";
 import HomePage from "src/pages/HomePage.tsx";
 import SnackbarCloseButton from "src/components/SnackbarCloseButton.tsx";
+import UsersPage from "src/pages/UsersPage.tsx";
 
 // import from ENV if needed
 // const ANY_API_URL = import.meta.env.VITE_ANY_API_URL;
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/users",
+    element: <UsersPage />,
     errorElement: <ErrorPage />,
   },
 ]);
