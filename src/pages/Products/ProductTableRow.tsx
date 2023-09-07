@@ -7,7 +7,7 @@ import axios from "axios";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { Formik } from "formik";
-import { useCartContext } from "src/context/cartContext.tsx";
+import { useCartContext } from "src/context/CartContext.tsx";
 
 const useStyles = makeStyles()(() => ({
   row: {
