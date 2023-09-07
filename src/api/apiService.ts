@@ -8,14 +8,7 @@ export const getUsers = (): Promise<GetUserQueryResult> => {
   return axios.get(url.href).then((res) => res.data);
 };
 
-export const addUser = (): Promise<User> => {
+export const addUser = (newUser: Partial<User>): Promise<User> => {
   const url = new URL("users/add", BASE_URL);
-
-  return axios
-    .post(url.href, {
-      firstName: "First Name",
-      lastName: "Last Name",
-      age: 25,
-    })
-    .then((res) => res.data);
+  return axios.post(url.href, newUser).then((res) => res.data);
 };
