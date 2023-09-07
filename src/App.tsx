@@ -13,6 +13,7 @@ import UsersPage from "src/pages/Users/UsersPage.tsx";
 import AddUserPage from "src/pages/Users/AddUserPage.tsx";
 import UsersWithContextPage from "src/pages/UsersWithContext/UsersWithContextPage.tsx";
 import ProductsPage from "src/pages/Products/ProductsPage.tsx";
+import { CartContextProvider } from "src/context/cartContext.tsx";
 
 // import from ENV if needed
 // const ANY_API_URL = import.meta.env.VITE_ANY_API_URL;
@@ -70,16 +71,18 @@ function App() {
     <Box className={classes.appContainer}>
       <AppHeader />
       <Box className={classes.routesContainer}>
-        <QueryClientProvider client={queryClient}>
-          <SnackbarProvider
-            autoHideDuration={3000}
-            preventDuplicate
-            action={(snackbarKey) => <SnackbarCloseButton snackbarKey={snackbarKey} />}
-          >
-            <RouterProvider router={router} />
-          </SnackbarProvider>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
+        <CartContextProvider>
+          <QueryClientProvider client={queryClient}>
+            <SnackbarProvider
+              autoHideDuration={3000}
+              preventDuplicate
+              action={(snackbarKey) => <SnackbarCloseButton snackbarKey={snackbarKey} />}
+            >
+              <RouterProvider router={router} />
+            </SnackbarProvider>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </CartContextProvider>
       </Box>
       <AppFooter />
     </Box>

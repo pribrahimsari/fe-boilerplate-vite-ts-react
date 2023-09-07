@@ -1,12 +1,13 @@
 import { Product } from "src/types/ProductTypes.ts";
 import { IconButton, TableCell, TableRow, TextField } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
-import { Add, Cancel, Delete, Edit, Save } from "@mui/icons-material";
+import { Add, Cancel, Delete, Edit, Remove, Save } from "@mui/icons-material";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { Formik } from "formik";
+import { useCartContext } from "src/context/cartContext.tsx";
 
 const useStyles = makeStyles()(() => ({
   row: {
@@ -17,6 +18,8 @@ const useStyles = makeStyles()(() => ({
 const ProductTableRow = ({ product }: { product: Product }) => {
   const { classes } = useStyles();
   const { enqueueSnackbar } = useSnackbar();
+
+  const { addProductToCart, isInCart, removeFromCart } = useCartContext();
 
   const [isEdit, setIsEdit] = useState(false);
 
@@ -93,9 +96,15 @@ const ProductTableRow = ({ product }: { product: Product }) => {
       <TableCell>{product.price}</TableCell>
       <TableCell>{product.category}</TableCell>
       <TableCell>
-        <IconButton>
-          <Add />
-        </IconButton>
+        {isInCart(product.id) ? (
+          <IconButton onClick={() => removeFromCart(product.id)}>
+            <Remove />
+          </IconButton>
+        ) : (
+          <IconButton onClick={() => addProductToCart(product)}>
+            <Add />
+          </IconButton>
+        )}
         <IconButton onClick={() => setIsEdit(true)}>
           <Edit />
         </IconButton>
