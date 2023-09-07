@@ -1,10 +1,14 @@
 import axios from "axios";
-import { GetUserQueryResult, User } from "src/types/UserTypes.ts";
+import { GetUsersQueryResult, GetUsersQueryVariables, User } from "src/types/UserTypes.ts";
 
 const BASE_URL = import.meta.env.VITE_DUMMYJSON_API_URL;
 
-export const getUsers = (): Promise<GetUserQueryResult> => {
+export const getUsers = ({ limit, skip }: GetUsersQueryVariables): Promise<GetUsersQueryResult> => {
   const url = new URL("users", BASE_URL);
+
+  if (limit) url.searchParams.append("limit", limit.toString());
+  if (skip) url.searchParams.append("skip", skip.toString());
+
   return axios.get(url.href).then((res) => res.data);
 };
 
