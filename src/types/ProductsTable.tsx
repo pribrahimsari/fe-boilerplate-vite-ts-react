@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import ProductTableRow from "src/types/ProductTableRow.tsx";
+import AddProducTableRow from "src/types/AddProducTableRow.tsx";
 
 const useStyles = makeStyles()(() => ({
   headCell: {
@@ -47,7 +48,10 @@ const ProductsTable = ({ data }: { data: GetProductsQueryResult }) => {
     <TableContainer component={Paper}>
       <Table size="small">
         <HeadCells />
+
         <TableBody>
+          <AddProducTableRow />
+
           {!products.length && (
             <TableRow>
               <TableCell colSpan={headCells.length}>

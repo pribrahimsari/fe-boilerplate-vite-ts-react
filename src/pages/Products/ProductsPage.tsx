@@ -4,7 +4,7 @@ import { Box, CircularProgress } from "@mui/material";
 import ProductsTable from "src/types/ProductsTable.tsx";
 
 const ProductsPage = () => {
-  const { data, isLoading } = useQuery(["getProducts"], getProducts, {
+  const { data, isLoading, isFetching } = useQuery(["getProducts"], getProducts, {
     refetchOnWindowFocus: false,
   });
 
@@ -17,7 +17,12 @@ const ProductsPage = () => {
 
   if (!data) return <>Data N/A</>;
 
-  return <ProductsTable data={data} />;
+  return (
+    <>
+      {isFetching && <div>Refreshing...</div>}
+      <ProductsTable data={data} />
+    </>
+  );
 };
 
 export default ProductsPage;
