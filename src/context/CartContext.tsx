@@ -39,6 +39,7 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCartContext = () => {
   const context = useContext(CartContext);
 
